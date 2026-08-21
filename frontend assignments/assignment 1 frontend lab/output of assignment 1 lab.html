@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhur Bhardwaj | Portfolio</title>
+<style>
+  :root{
+    --navy:#0d2c54;
+    --blue:#2563eb;
+    --yellow:#f5c518;
+    --light-bg:#eaf1fb;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --border:#e2e8f0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    color:var(--text);
+    background:#fff;
+    scroll-behavior:smooth;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+
+  /* NAVBAR */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--navy);
+    color:#fff;
+    padding:18px 60px;
+    flex-wrap:wrap;
+  }
+  .brand h1{font-size:1.6rem;font-weight:700;}
+  .brand p{font-size:0.85rem;color:#cbd5e1;margin-top:2px;}
+  nav ul{display:flex;gap:32px;}
+  nav a{font-weight:600;font-size:0.95rem;padding-bottom:4px;transition:color .2s;}
+  nav a:hover{color:var(--yellow);}
+  nav a.active{color:var(--yellow);border-bottom:2px solid var(--yellow);}
+
+  /* HERO */
+  .hero{
+    background:var(--light-bg);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:70px 60px;
+    flex-wrap:wrap;
+    gap:40px;
+  }
+  .hero-text{max-width:560px;}
+  .hero-text h2{font-size:2.3rem;color:var(--navy);margin-bottom:6px;}
+  .hero-text h3{font-size:1.4rem;color:var(--blue);font-weight:600;margin-bottom:18px;}
+  .hero-text p{color:var(--muted);line-height:1.7;margin-bottom:26px;}
+  .btn{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    padding:12px 24px;
+    border-radius:6px;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+    transition:background .2s;
+  }
+  .btn:hover{background:#123a6e;}
+  .btn.secondary{background:#e5e7eb;color:var(--text);}
+  .btn.secondary:hover{background:#d1d5db;}
+  .hero-img{
+    width:280px;height:280px;border-radius:50%;
+    border:6px solid #fff;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+    background:linear-gradient(135deg,var(--blue),var(--navy));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:4rem;font-weight:700;
+    flex-shrink:0;
+  }
+
+  /* SECTIONS */
+  section.block{padding:50px 60px;}
+  .section-title{
+    display:flex;align-items:center;gap:10px;
+    font-size:1.3rem;color:var(--navy);margin-bottom:18px;
+  }
+  .section-title .icon{color:var(--blue);font-size:1.3rem;}
+
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+    padding:0 60px 50px;
+  }
+  .grid-3 p{color:var(--muted);line-height:1.7;}
+  .grid-3 ul li{
+    color:var(--muted);
+    padding:4px 0;
+    position:relative;padding-left:16px;
+  }
+  .grid-3 ul li::before{
+    content:"";position:absolute;left:0;top:12px;
+    width:6px;height:6px;border-radius:50%;background:var(--blue);
+  }
+
+  table{width:100%;border-collapse:collapse;font-size:0.9rem;}
+  th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;}
+  th{background:#f8fafc;color:var(--navy);}
+
+  /* PROJECTS */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+    padding:0 60px 20px;
+  }
+  .project-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:20px;
+    transition:box-shadow .2s, transform .2s;
+  }
+  .project-card:hover{box-shadow:0 6px 18px rgba(0,0,0,0.08);transform:translateY(-2px);}
+  .project-card h4{color:var(--navy);margin-bottom:8px;font-size:1.05rem;}
+  .project-card p{color:var(--muted);font-size:0.9rem;line-height:1.6;margin-bottom:12px;}
+  .project-card a{color:var(--blue);font-weight:600;font-size:0.9rem;}
+
+  .connect-icons{display:flex;gap:14px;padding:0 60px 50px;}
+  .connect-icons a{
+    width:42px;height:42px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    background:#f1f5f9;color:var(--navy);font-weight:700;
+    border:1px solid var(--border);
+  }
+
+  /* CONTACT */
+  .contact-form{
+    display:flex;flex-direction:column;gap:14px;
+    max-width:420px;
+  }
+  .contact-form label{font-weight:600;font-size:0.9rem;margin-bottom:-8px;}
+  .contact-form input, .contact-form textarea{
+    padding:10px 12px;border:1px solid var(--border);border-radius:6px;
+    font-family:inherit;font-size:0.9rem;
+  }
+  .contact-form textarea{resize:vertical;min-height:90px;}
+  .form-actions{display:flex;gap:12px;margin-top:4px;}
+
+  .two-col{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    padding:0 60px 60px;
+  }
+
+  footer{
+    text-align:center;padding:20px;background:var(--navy);color:#cbd5e1;font-size:0.85rem;
+  }
+
+  @media(max-width:900px){
+    header{padding:16px 24px;}
+    nav ul{gap:16px;flex-wrap:wrap;}
+    .hero{padding:40px 24px;}
+    section.block{padding:40px 24px;}
+    .grid-3{grid-template-columns:1fr;padding:0 24px 40px;}
+    .projects-grid{padding:0 24px 20px;}
+    .connect-icons{padding:0 24px 40px;}
+    .two-col{grid-template-columns:1fr;padding:0 24px 40px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>Madhur Bhardwaj</h1>
+    <p>Web Developer</p>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Hi, I'm Madhur Bhardwaj</h2>
+    <h3>Web Developer</h3>
+    <p>I am a passionate B.Tech student specializing in Cloud Computing, with a strong interest in building clean, responsive and user-friendly websites. I love turning ideas into real world applications.</p>
+    <a href="#" class="btn">Download CV</a>
+  </div>
+  <div class="hero-img">MB</div>
+</section>
+
+<section class="block" id="about-skills-edu" style="padding-bottom:0;">
+</section>
+
+<div class="grid-3" style="padding-top:50px;">
+  <div>
+    <div class="section-title"><span class="icon">&#128100;</span> About Me</div>
+    <p>I am a quick learner and a team player. I enjoy solving problems and learning new technologies. My goal is to become a full stack developer and work on impactful projects.</p>
+  </div>
+  <div>
+    <div class="section-title"><span class="icon">&lt;/&gt;</span> Skills</div>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Bootstrap</li>
+      <li>Git &amp; GitHub</li>
+      <li>Responsive Design</li>
+    </ul>
+  </div>
+  <div>
+    <div class="section-title"><span class="icon">&#127891;</span> Education</div>
+    <table>
+      <tr><th>Qualification</th><th>Institute</th><th>Year</th><th>Percentage</th></tr>
+      <tr><td>B.Tech (Cloud Computing)</td><td>GLA University</td><td>2nd Year</td><td>8.0 CGPA</td></tr>
+      <tr><td>12th (PCM)</td><td>&mdash;</td><td>&mdash;</td><td>80%</td></tr>
+      <tr><td>10th</td><td>&mdash;</td><td>&mdash;</td><td>95%</td></tr>
+    </table>
+  </div>
+</div>
+
+<section class="block" id="projects" style="padding-top:10px;">
+  <div class="section-title"><span class="icon">&#128188;</span> Projects</div>
+</section>
+<div class="projects-grid" style="margin-top:-30px;">
+  <div class="project-card">
+    <h4>1. Deep Fake Detection</h4>
+    <p>A machine learning based system that analyzes images/videos to detect deep fake or manipulated media.</p>
+    <a href="#">View Project</a>
+  </div>
+  <div class="project-card">
+    <h4>2. To-Do List App</h4>
+    <p>A simple to-do list web app to add, remove and manage tasks.</p>
+    <a href="#">View Project</a>
+  </div>
+</div>
+
+<div class="two-col" id="contact" style="margin-top:20px;">
+  <div>
+    <div class="section-title"><span class="icon">&#128279;</span> Connect with me</div>
+    <div class="connect-icons">
+      <a href="#" title="LinkedIn">in</a>
+      <a href="#" title="GitHub">GH</a>
+      <a href="#" title="Gmail">@</a>
+    </div>
+  </div>
+  <div>
+    <div class="section-title"><span class="icon">&#9993;</span> Contact Me</div>
+    <form class="contact-form" onsubmit="return false;">
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name">
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea placeholder="Type your message..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Send Message</button>
+        <button type="reset" class="btn secondary">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>&copy; 2026 Madhur Bhardwaj. All rights reserved.</footer>
+
+</body>
+</html>
